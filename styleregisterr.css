@@ -1,0 +1,302 @@
+/* Reset default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Background utama dengan efek aurora */
+body {
+    background: linear-gradient(180deg, #81df98, #39c9a5, #37a140);
+    background-size: 400% 400%;
+    animation: aurora 10s infinite alternate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+/* Efek animasi aurora */
+@keyframes aurora {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* Container utama register */
+.register-container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    padding: 35px;
+    width: 400px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.3);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Judul register */
+h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Input untuk form register */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+/* Placeholder warna putih transparan */
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Efek glow saat input aktif */
+input:focus {
+    border-color: #00ffea;
+    outline: none;
+    box-shadow: 0 0 10px #269450;
+}
+
+/* Tombol register */
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #ffffff, #ffffff);
+    border: none;
+    color: black;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Efek hover tombol */
+button:hover {
+    background: linear-gradient(90deg, #ffffff, #5de7a7);
+    box-shadow: 0 0 15px rgba(26, 128, 56, 0.7);
+}
+
+/* Teks di bawah form */
+p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Link login */
+p a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Efek hover pada link */
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Pesan error */
+.error-message {
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    animation: shake 0.3s ease-in-out;
+}
+
+/* Efek animasi fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efek animasi saat error */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+/* === Efek Partikel & Gelembung === */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: sparkle 4s linear infinite;
+    z-index: 0;
+}
+
+@keyframes sparkle {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+}
+
+/* === Efek Parallax === */
+body {
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* === Gradient Dinamis Tambahan === */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+body {
+    background: linear-gradient(270deg, #70dd80, #5fd3b0, #6bb8a1, #38d36e);
+    background-size: 800% 800%;
+    animation: gradientFlow 20s ease infinite;
+}
+
+/* === Cursor Trail (hanya background) === */
+body {
+    position: relative;
+    overflow: hidden;
+}
+
+.trail {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.5);
+    animation: fadeTrail 1s forwards;
+    z-index: 1;
+}
+
+@keyframes fadeTrail {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+/* BACKGROUND ANIMASI: gradient + gelembung + partikel */
+body {
+    background: radial-gradient(circle at 20% 30%, #70e099 0%, #4ae28a 40%, #15c070 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* GELEMBUNG */
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: rise 20s infinite ease-in;
+    z-index: 0;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* CURSOR TRAIL */
+.trail {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.5);
+    animation: fadeTrail 1s forwards;
+    z-index: 1;
+}
+
+@keyframes fadeTrail {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+/* Bubble animation (samain kayak login) */
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: bubble-float 15s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes bubble-float {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1200px) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Trail effect */
+.cursor-trail {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    pointer-events: none;
+    z-index: 9999;
+    animation: blink 1s infinite;
+    opacity: 0.7;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 0.3; }
+}
+

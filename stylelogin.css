@@ -1,0 +1,688 @@
+/* Reset default styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Background utama dengan efek aurora */
+body {
+  background: linear-gradient(135deg, #8ccdd8, #48c2e7, #3288df);
+  background-size: 400% 400%;
+  animation: aurora 6s infinite alternate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efek animasi aurora */
+@keyframes aurora {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Container utama login */
+.login-container {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  padding: 35px;
+  width: 400px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.3);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  position: relative;
+  z-index: 2; /* biar di atas partikel */
+}
+
+/* Judul login */
+h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Input */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+/* Placeholder warna putih transparan */
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+  border-color: #1aa4bd;
+  outline: none;
+  box-shadow: 0 0 10px #0099ff;
+}
+
+/* Tombol login */
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #ffffff, #ffffff);
+  border: none;
+  color: black;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #ffffff, #a8ffbf);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+/* Text bawah */
+p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+p a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* Pesan error */
+.error-message {
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  animation: shake 0.3s ease-in-out;
+}
+
+/* Efek fade-in dan shake */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Partikel glowing */
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.particles::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+      0 0 10px #fff,
+      0 0 20px rgb(68, 156, 197),
+      0 0 30px rgb(57, 165, 207),
+      0 0 40px rgb(46, 201, 240);
+  animation: floating 4s infinite ease-in-out alternate;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+/* Awan */
+.clouds {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.cloud1, .cloud2, .cloud3 {
+  position: absolute;
+  background: url('cloud.png') no-repeat;
+  background-size: contain;
+  width: 200px;
+  height: 100px;
+  opacity: 0.2;
+  animation: cloudMove 60s linear infinite;
+}
+
+.cloud2 {
+  top: 20%;
+  left: -100px;
+  animation-delay: 5s;
+}
+
+.cloud3 {
+  top: 50%;
+  left: -200px;
+  animation-delay: 10s;
+}
+
+@keyframes cloudMove {
+  0% { transform: translateX(-300px); }
+  100% { transform: translateX(100vw); }
+}
+
+/* Floating partikel */
+@keyframes floating {
+  0% { transform: translateY(0); opacity: 0.8; }
+  100% { transform: translateY(-100px); opacity: 0; }
+}
+
+/* Ikon input */
+input[type="text"], input[type="password"] {
+  padding-left: 40px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 20px;
+}
+
+input[name="username"] {
+  background-image: url('user-icon.png');
+}
+
+input[name="password"] {
+  background-image: url('lock-icon.png');
+}
+@keyframes buttonShake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+.shake-button {
+  animation: buttonShake 0.5s;
+}
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #5e60ce, #7400b8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.loader {
+  width: 70px;
+  height: 70px;
+  border: 6px solid #fff;
+  border-top-color: #fcbf49;
+  border-right-color: #f77f00;
+  border-bottom-color: #00bbf9;
+  border-left-color: #80ffdb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite, pulse 1.5s ease-in-out infinite;
+  margin-bottom: 15px;
+}
+
+.loader-wrapper p {
+  animation: blink 1s infinite;
+  color: #ffffff;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* animasi-animasi tambahan */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+/* ===✨ TAMBAHAN MEWAH ✨=== */
+
+/* Efek bintang-bintang berkedip */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.twinkle-stars::before, .twinkle-stars::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: white;
+  animation: twinkle 2s infinite ease-in-out alternate;
+  box-shadow:
+    50px 100px white,
+    150px 200px white,
+    250px 300px white,
+    350px 100px white,
+    100px 400px white,
+    200px 150px white,
+    300px 250px white;
+  z-index: 1;
+}
+body::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+body.twinkle-stars::before {
+  animation: twinkle 4s infinite alternate;
+}
+
+/* Input dengan efek glass & neon */
+input {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 8px rgba(0,255,255,0.3);
+  transition: all 0.3s ease-in-out;
+}
+input:focus {
+  box-shadow: 0 0 15px rgba(0,255,255,0.8);
+  border-color: #0ff;
+}
+
+/* Tombol login efek mewah */
+button {
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+  color: white;
+  border: none;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.3);
+}
+button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.8), 0 0 35px #00f2fe;
+}
+
+/* Border container login neon shimmer */
+.login-container {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00f2fe, #4facfe, #00f2fe, #4facfe);
+  background-size: 300% 300%;
+  animation: shimmer-border 5s linear infinite;
+  z-index: 0;
+  border-radius: 15px;
+  opacity: 0.3;
+}
+@keyframes shimmer-border {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+.login-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Teks link animasi glowing */
+p a {
+  position: relative;
+  transition: all 0.3s;
+}
+p a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  opacity: 0.7;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+p a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Tambahan sentuhan cahaya melayang */
+@keyframes glowFloat {
+  0% { box-shadow: 0 0 5px rgba(255,255,255,0.1); transform: translateY(0); }
+  50% { box-shadow: 0 0 20px rgba(255,255,255,0.6); transform: translateY(-8px); }
+  100% { box-shadow: 0 0 5px rgba(255,255,255,0.1); transform: translateY(0); }
+}
+.login-container {
+  animation: glowFloat 4s ease-in-out infinite;
+}
+/* ==== BACKGROUND GRADIENT DINAMIS ==== */
+.animated-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #00f2fe, #4facfe, #00c6ff);
+  background-size: 600% 600%;
+  animation: gradientShift 10s ease infinite;
+  z-index: -3;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+  100% { opacity: 0.3; }
+}
+
+/* ==== SALJU ==== */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: snowfall linear infinite;
+  z-index: -1;
+}
+
+@keyframes snowfall {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* ==== GELEMBUNG ==== */
+.bubble {
+  position: fixed;
+  bottom: -50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation: rise infinite ease-in;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes rise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+}
+
+/* ==== PARALLAX ==== */
+.parallax {
+  background: url('your-parallax-image.jpg') repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -4;
+}
+
+/* ==== CURSOR TRAIL ==== */
+.trail-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.5;
+  transition: transform 0.2s ease-out;
+}
+
+/* === Tinkerbell Theme 💚✨🌿 === */
+
+/* Ubah warna background jadi gradasi hijau fairy */
+body {
+  background: linear-gradient(135deg, #a8ffbf, #74f2ce, #baffc9);
+  background-size: 400% 400%;
+  animation: tinkerGlow 8s ease infinite alternate;
+}
+
+/* Efek gradasi shimmer hijau */
+@keyframes tinkerGlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Bintang berkedip warna hijau lemon */
+.twinkle-stars::before, .twinkle-stars::after {
+  background: #eaffd0;
+  box-shadow:
+    50px 100px #eaffd0,
+    150px 200px #eaffd0,
+    250px 300px #eaffd0,
+    350px 100px #eaffd0,
+    100px 400px #eaffd0,
+    200px 150px #eaffd0,
+    300px 250px #eaffd0;
+}
+
+/* Efek shimmer container login */
+.login-container::before {
+  background: linear-gradient(45deg, #cbffcb, #caffbf, #d4ffea);
+}
+
+/* Tombol hijau blink */
+button {
+  background: linear-gradient(135deg, #baffc9, #b3ffab);
+  box-shadow: 0 0 15px rgba(144, 238, 144, 0.6), 0 0 30px rgba(186, 255, 201, 0.3);
+}
+button:hover {
+  box-shadow: 0 0 30px rgba(186, 255, 201, 0.9), 0 0 40px #a8ffbf;
+}
+
+/* Teks link glowing hijau */
+p a::after {
+  background: linear-gradient(90deg, #baffc9, #caffbf);
+}
+
+/* Loader hijau fairy */
+.loader-wrapper {
+  background: linear-gradient(135deg, #caffbf, #baffc9);
+}
+.loader {
+  border-top-color: #baffc9;
+  border-right-color: #d4ffea;
+  border-bottom-color: #cbffcb;
+  border-left-color: #caffbf;
+}
+
+/* Snow putih kehijauan */
+.snowflake {
+  background: #eaffd0;
+}
+
+/* Gelembung fairy */
+.bubble {
+  background: rgba(200, 255, 200, 0.3);
+}
+
+/* Trail cursor hijau */
+.trail-dot {
+  background: #d4ffea;
+  box-shadow: 0 0 8px #baffc9;
+}
+/* === BACKGROUND LOADER LEMBUT === */
+.loader-wrapper {
+  background: linear-gradient(135deg, #c0f5c4, #d4ffe9);
+}
+
+/* === ANIMASI PERI KECIL === */
+.fairy {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: url('fairy.png') no-repeat center;
+  background-size: contain;
+  animation: fairyFly 10s infinite linear;
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes fairyFly {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+    transform: translate(100px, -50px) rotate(30deg);
+  }
+  50% {
+    transform: translate(200px, 0px) rotate(60deg);
+  }
+  75% {
+    opacity: 1;
+    transform: translate(300px, -60px) rotate(90deg);
+  }
+  100% {
+    transform: translate(400px, 0px) rotate(120deg);
+    opacity: 0;
+  }
+}
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #c0f5c4, #d4ffe9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #b2f2bb;
+  border-top: 5px solid #7bd389;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader-wrapper p {
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 18px;
+  color: #2d5944;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+#flower-container {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  width: 100px;
+  height: 100px;
+}
+
+#flower {
+  animation: sway 2s ease-in-out infinite alternate;
+  transform-origin: center bottom;
+}
+
+@keyframes sway {
+  0% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+
